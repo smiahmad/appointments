@@ -61,6 +61,12 @@ body {
     padding-top: 8px;
 }
 
+.user-name {
+  margin-top: 2%;
+  padding: 5px;
+  color: white;
+}
+
 /* pagination styling from github */
 .flickr_pagination {
   text-align: center;

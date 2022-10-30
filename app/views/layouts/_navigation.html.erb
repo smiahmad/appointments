@@ -50,6 +50,10 @@
            </li>
 
            <li class = "nav-item">
+             <%= current_user.full_name %>
+           </li>
+
+           <li class = "nav-item">
              <%= link_to "Log Out", "#", class: "btn btn-outline-info", data: {turbo_method: :delete} %>
            </li>
 
