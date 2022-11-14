@@ -1,0 +1,12 @@
+<h1 class="text-center mt-4">All Appointments</h1>
+
+<div class="flickr_pagination">
+    <%= will_paginate @gate_appointments, :container => false %>
+</div>
+
+<%= render 'gate_appointment'%>
+
+<div class="flickr_pagination">
+    <%= will_paginate @gate_appointments, :container => false %>
+</div>
+<br>

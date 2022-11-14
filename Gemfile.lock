@@ -68,6 +68,9 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    akami (1.3.1)
+      gyoku (>= 0.4.0)
+      nokogiri
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.13.0)
@@ -96,10 +99,16 @@ GEM
       warden (~> 1.2.3)
     devise-bootstrap-views (1.1.0)
     erubi (1.11.0)
+    ffi (1.15.5-x64-mingw-ucrt)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    gyoku (1.4.0)
+      builder (>= 2.1.2)
+      rexml (~> 3.0)
+    httpi (3.0.1)
+      rack
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -133,6 +142,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.9-x64-mingw-ucrt)
       racc (~> 1.4)
+    nori (2.6.0)
     orm_adapter (0.5.0)
     pg (1.4.4-x64-mingw-ucrt)
     public_suffix (5.0.0)
@@ -177,6 +187,15 @@ GEM
       railties (>= 5.0)
     rexml (3.2.5)
     rubyzip (2.3.2)
+    savon (2.13.1)
+      akami (~> 1.2)
+      builder (>= 2.1.2)
+      gyoku (~> 1.2)
+      httpi (>= 2.4.5)
+      mail (~> 2.5)
+      nokogiri (>= 1.8.1)
+      nori (~> 2.4)
+      wasabi (~> 3.4)
     selenium-webdriver (4.5.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -204,6 +223,10 @@ GEM
       tzinfo (>= 1.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
+    wasabi (3.8.0)
+      addressable
+      httpi (~> 3.0)
+      nokogiri (>= 1.4.2)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -217,6 +240,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.1)
@@ -230,12 +254,15 @@ DEPENDENCIES
   debug
   devise
   devise-bootstrap-views (~> 1.0)
+  ffi (~> 1.15, >= 1.15.5)
   font-awesome-rails
   importmap-rails
   jbuilder
   pg
   puma (~> 5.0)
   rails (~> 7.0.4)
+  rexml
+  savon (~> 2.13.0)
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
@@ -244,6 +271,7 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
+  will_paginate (~> 3.3)
 
 RUBY VERSION
    ruby 3.1.2p20

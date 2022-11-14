@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nbr: 1
+  eqId: MyString
+  iso: MyString
+  orderNbr: MyString
+  releaseNbr: MyString
+  trkcId: MyString
+  type: 
+  day: 2022-11-13 12:46:06
+
+two:
+  nbr: 1
+  eqId: MyString
+  iso: MyString
+  orderNbr: MyString
+  releaseNbr: MyString
+  trkcId: MyString
+  type: 
+  day: 2022-11-13 12:46:06
