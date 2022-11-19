@@ -1,30 +1,35 @@
 <div class="container">
-  <% @gate_appointments.each do |gate_appointment|%>
-  <div class="row justify-content-center">
-    <div class="col-8 mt-4">
-      <div class="card text-center shadow mb-5 bg-white rounded">
-        <div class="card-header font-italic">
-          <% if gate_appointment.user%>
-            By <%= link_to gate_appointment.user.full_name, user_path(gate_appointment.user)%>
-          <%end%>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><%=link_to gate_appointment.nbr, gate_appointment_path(gate_appointment), class: "text-success"%></h5>
-          <p class="card-text"><%=truncate(gate_appointment.eqId, length: 100)%></p>
-          <div class="container">
-          <%= link_to "View", gate_appointment_path(gate_appointment), class: "btn btn-outline-success"%>
-          <% if logged_in? && (gate_appointment.user == current_user || current_user.admin?)%>
-            <%= link_to "Edit", edit_gate_appointment_path(article), class: "btn btn-outline-info"%>
-            <%= link_to "Delete", gate_appointment_path(article), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
-          <% end %>
+  <% if !@my_gate_appointments.empty? %>
+    <h1 class="text-center mt-4">Your appointments</h1>
+    <% @my_gate_appointments.each do |gate_appointment|%>
+    <div class="row justify-content-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            <% if gate_appointment.user%>
+              By <%= link_to gate_appointment.user.full_name, user_path(gate_appointment.user)%>
+            <%end%>
           </div>
-        </div>
-        <div class="card-footer text-muted">
-          <small>Created <%=time_ago_in_words(gate_appointment.created_at) %> ago,
-            edited <%=time_ago_in_words(gate_appointment.updated_at) %> ago</small>
+          <div class="card-body">
+            <h5 class="card-title"><%=link_to gate_appointment.nbr, gate_appointment_path(gate_appointment), class: "text-success"%></h5>
+            <p class="card-text"><%=truncate(gate_appointment.eqId, length: 100)%></p>
+            <div class="container">
+            <%= link_to "View", gate_appointment_path(gate_appointment), class: "btn btn-outline-success"%>
+            <% if logged_in? && (gate_appointment.user == current_user || current_user.admin?)%>
+              <%= link_to "Edit", edit_gate_appointment_path(gate_appointment), class: "btn btn-outline-info"%>
+              <%= link_to "Delete", gate_appointment_path(gate_appointment), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+            <% end %>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%=time_ago_in_words(gate_appointment.created_at) %> ago,
+              edited <%=time_ago_in_words(gate_appointment.updated_at) %> ago</small>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <% end %>
+  <% else %>
+  <h1>You have no appointments currently</h1>
   <% end %>
 </div>
