@@ -1,4 +1,8 @@
 <div class="container">
+  <div class="text-center mt-4" >
+    <%= link_to "New Appointment", new_gate_appointment_path, class: "text-prmary"%>
+  </div>
+
   <% if !@my_gate_appointments.empty? %>
     <h1 class="text-center mt-4">Your appointments</h1>
     <% @my_gate_appointments.each do |gate_appointment|%>

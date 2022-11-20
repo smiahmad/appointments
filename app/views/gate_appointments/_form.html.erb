@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 ">
+      <%= render 'shared/errors', obj: @gate_appointment %>
+      <%= form_with(model: @gate_appointment, class: "shadow p-3 mb-3 bg-info rounded", local: true)  do |f| %>
+
+      <div class="form-group row">
+        <%= f.label :nbr, class: "col-2 col-form-label text-light" %>
+        <div class="col-10">
+          <%= f.text_field :nbr, class: "form-control shadow rounded", placeholder: "Appointment Number" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :eqId, class: "col-2 col-form-label text-light" %>
+        <div class="col-10">
+          <%= f.text_field :eqId, class: "form-control shadow rounded", placeholder: "Equipment Number" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :orderNbr, class: "col-2 col-form-label text-light" %>
+        <div class="col-10">
+          <%= f.text_field :orderNbr, class: "form-control shadow rounded", placeholder: "Booking/EDO Number" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :releaseNbr, class: "col-2 col-form-label text-light" %>
+        <div class="col-10">
+          <%= f.text_field :releaseNbr, class: "form-control shadow rounded", placeholder: "Release Number" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :tranType, class: "col-2 col-form-label text-light" %>
+        <div class="col-10">
+          <%= f.text_field :tranType, class: "form-control shadow rounded", placeholder: "Transaction Type" %>
+        </div>
+      </div>
+
+      <div class="control-group row">
+        <%= f.label :day, class: "col-2 control-label text-light" %>
+        <div class="controls col-10">
+          <%= f.datetime_select :day, :class => 'form-control' %>
+        </div>
+      </div>
+
+
+      <!-- <div class="form-group row">
+        <%#= f.label :category, class: "col-2 col-form-label text-light" %>
+        <div class="col-10">
+          <%#= f.collection_select :category_ids, Category.order(:name), :id, :name,
+           { prompt: "Make your selection from the list below (can be empty)"},
+           {multiple: true, size: 3, class: "custom-select shadow rounded"} %>
+        </div>
+      </div> -->
+
+      <div class="form-group row justify-content-center">
+        <%= f.submit class: "btn btn-outline-light btn-lg" %>
+      </div>
+
+      <% end %>
+    </div>
+
+    <div class="mb-3 col-10 form-group row justify-content-center">
+      <%= link_to '[ Cancel and Return To Articles ]', my_gate_appointments_path, class: "text-info"%>
+    </div>
+
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_13_210359) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_20_224917) do
   create_table "gate_appointments", force: :cascade do |t|
     t.integer "nbr"
     t.string "eqId"
@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_210359) do
     t.string "orderNbr"
     t.string "releaseNbr"
     t.string "trkcId"
-    t.string "type"
+    t.string "tranType"
     t.datetime "day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
