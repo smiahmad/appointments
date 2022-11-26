@@ -10,17 +10,17 @@ class UsersController < ApplicationController
   end
 
   def search
-    if params[:friend].present?
-      @friends = User.search(params[:friend])
-      @friends = current_user.except_current_user(@friends)
+    if params[:gate_appointment].present?
+      @gate_appointments = User.search(params[:gate_appointment])
+      @friends = current_user.except_current_user(@gate_appointments)
       # byebug
-      if @friends
+      if @gate_appointments
         respond_to do |format|
           format.js{render partial: 'users/friend_result'}
         end
       else
         respond_to do |format|
-        flash.now[:alert] = "Could not find friend!"
+        flash.now[:alert] = "Could not find gate appointment!"
         format.js{render partial: 'users/friend_result'}
         end
       end

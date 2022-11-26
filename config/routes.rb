@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   resources :users, only: [:show]
   resources :gate_appointments
+  resources :trucking_companies
   get 'my_gate_appointments', to: 'users#my_gate_appointments'
 
 end

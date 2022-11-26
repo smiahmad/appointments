@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="text-center mt-4" >
+    <%= link_to "New Trucking Company", new_trucking_company_path, class: "text-prmary"%>
+  </div>
+
+  <% if !@trucking_companies.empty? %>
+    <h1 class="text-center mt-4">Trucking companies</h1>
+    <% @trucking_companies.each do |trucking_company|%>
+    <div class="row justify-content-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            By <%= link_to trucking_company.name, trucking_company_path(trucking_company)%>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%=link_to trucking_company.code, trucking_company_path(trucking_company), class: "text-success"%></h5>
+            <p class="card-text"><%=truncate(trucking_company.name, length: 100)%></p>
+            <div class="container">
+            <%= link_to "View", trucking_company_path(trucking_company), class: "btn btn-outline-success"%>
+            <% if logged_in? && current_user.admin?%>
+              <%= link_to "Edit", edit_trucking_company_path(trucking_company), class: "btn btn-outline-info"%>
+              <%= link_to "Delete", trucking_company_path(trucking_company), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+            <% end %>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%=time_ago_in_words(trucking_company.created_at) %> ago,
+              edited <%=time_ago_in_words(trucking_company.updated_at) %> ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% else %>
+  <h1>There are no Trucking Companies in the database currently</h1>
+  <% end %>
+</div>

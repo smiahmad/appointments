@@ -21,7 +21,7 @@ class GateAppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @gate_appointment.update(gate_appointment_params)
-        format.html { redirect_to gate_appointment_url(@gate_appointment), notice: "Article was successfully updated..." }
+        format.html { redirect_to gate_appointment_url(@gate_appointment), notice: "Appointment was successfully updated..." }
         # format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class GateAppointmentsController < ApplicationController
     #debugger
     respond_to do |format|
       if @gate_appointment.save
-        flash[:notice] = "Article saved successfully!!"
+        flash[:notice] = "Appointment saved successfully!!"
         format.html { redirect_to gate_appointment_url(@gate_appointment) }
       else
         format.html { render :new, status: :unprocessable_entity }
