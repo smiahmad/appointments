@@ -24,9 +24,10 @@
 
       <div class="form-group ">
         <%= f.label :Trucking_Company %>
-        <%= f.text_field :trkc_id, autofocus: true, autocomplete: 'Trucking Company', class: 'form-control' %>
+        <%#= f.text_field :trkc_id, autofocus: true, autocomplete: 'Trucking Company', class: 'form-control' %>
+        <%= f.collection_select :trkc_id, TruckingCompany.all, :code, :name, :prompt => true, class: 'form-control' %>
       </div>
-      
+
       <div class="form-group">
         <%= f.label :password %>
         <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
