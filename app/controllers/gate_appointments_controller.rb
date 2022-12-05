@@ -60,7 +60,7 @@ class GateAppointmentsController < ApplicationController
 
   def gate_appointment_params
     params.require(:gate_appointment)
-    .permit(:nbr, :eqId, :releaseNbr, :orderNbr, :trkcId, :tranType, :day)
+    .permit(:nbr, :eqId, :iso, :releaseNbr, :orderNbr, :trkcId, :tranType, :day, :line_id, :truck_license)
   end
 
 end
