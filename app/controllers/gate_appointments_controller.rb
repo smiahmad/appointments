@@ -34,6 +34,7 @@ class GateAppointmentsController < ApplicationController
   def create
     @gate_appointment = GateAppointment.new(gate_appointment_params)
     @gate_appointment.user = current_user
+    create_appointment_in_n4(@gate_appointment)
 
     #debugger
     respond_to do |format|
@@ -61,6 +62,20 @@ class GateAppointmentsController < ApplicationController
   def gate_appointment_params
     params.require(:gate_appointment)
     .permit(:nbr, :eqId, :iso, :releaseNbr, :orderNbr, :trkcId, :tranType, :day, :line_id, :truck_license)
+  end
+
+  def create_appointment_in_n4 (gate_appointment)
+    client = Savon::Client.new(wsdl: 'C:/N4/argobasic-service.wsdl', host: 'http://localhost:8280/apex/services/argobasicservice',  basic_auth: ["n4api", "lookitup"])
+    client.call(:basic_invoke, message: { "scopeCoordinateIds" => 'OPR1/CPX11/FCY111/YRD1111', "xmlDoc" => '<gate>
+        <create-appointment>
+            <appointment-date>2022-12-06</appointment-date>
+            <gate-id>TEST_GATE</gate-id>
+            <truck license-nbr="IMRTRK" />
+            <booking booking-nbr="TEST" line="APL" />
+            <tran-type>RE</tran-type>
+            <container eqid="APLU8989891" type="2200"/>
+        </create-appointment>
+    </gate>'})
   end
 
 end

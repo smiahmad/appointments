@@ -11,5 +11,5 @@ class GateAppointment < ApplicationRecord
   before_save { self.iso = iso.upcase }
   before_save { self.orderNbr = orderNbr.upcase }
   before_save { self.tranType = tranType.upcase }
-  before_save { self.lineId = lineId.upcase }
+  before_save { self.line_id = line_d.upcase }
 end
